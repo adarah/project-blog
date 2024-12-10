@@ -2,6 +2,7 @@ import BlogHero from "@/components/BlogHero";
 import { getBlogPostList, loadBlogPost } from "@/helpers/file-helpers";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import styles from "./postSlug.module.css";
+import CodeSnippet from "@/components/CodeSnippet";
 
 export async function generateStaticParams() {
   const blogPosts = await getBlogPostList();
@@ -34,7 +35,7 @@ async function BlogPost({ params }) {
         publishedOn={frontmatter.publishedOn}
       />
       <div className={styles.page}>
-        <MDXRemote source={content} />
+        <MDXRemote source={content} components={{ pre: CodeSnippet }} />
       </div>
     </article>
   );
