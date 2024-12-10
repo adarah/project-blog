@@ -8,7 +8,24 @@ export async function generateStaticParams() {
   return blogPosts.map((p) => ({ postSlug: p.slug }));
 }
 
-async function BlogPost({ params: { postSlug } }) {
+export async function generateMetadata({ params }) {
+  const { postSlug } = params;
+  const { frontmatter } = await loadBlogPost(postSlug);
+
+  return {
+    title: frontmatter.title,
+    description: frontmatter.abstract,
+    openGraph: {
+      title: frontmatter.title,
+      type: "article",
+      description: frontmatter.abstract,
+      publishedTime: frontmatter.publishedOn,
+    },
+  };
+}
+
+async function BlogPost({ params }) {
+  const { postSlug } = params;
   const { content, frontmatter } = await loadBlogPost(postSlug);
   return (
     <article className={styles.wrapper}>
