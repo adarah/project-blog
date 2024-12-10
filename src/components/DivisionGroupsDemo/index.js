@@ -1,2 +1,2 @@
-export * from './DivisionGroupsDemo';
-export { default } from './DivisionGroupsDemo';
+export * from "./LazyDivisionGroupsDemo";
+export { default } from "./LazyDivisionGroupsDemo";

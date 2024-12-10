@@ -3,6 +3,7 @@ import { getBlogPostList, loadBlogPost } from "@/helpers/file-helpers";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import styles from "./postSlug.module.css";
 import CodeSnippet from "@/components/CodeSnippet";
+import DivisionGroupsDemo from "@/components/DivisionGroupsDemo";
 
 export async function generateStaticParams() {
   const blogPosts = await getBlogPostList();
@@ -35,7 +36,13 @@ async function BlogPost({ params }) {
         publishedOn={frontmatter.publishedOn}
       />
       <div className={styles.page}>
-        <MDXRemote source={content} components={{ pre: CodeSnippet }} />
+        <MDXRemote
+          source={content}
+          components={{
+            pre: CodeSnippet,
+            DivisionGroupsDemo,
+          }}
+        />
       </div>
     </article>
   );
