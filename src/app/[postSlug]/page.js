@@ -6,6 +6,8 @@ import CodeSnippet from "@/components/CodeSnippet";
 import DivisionGroupsDemo from "@/components/DivisionGroupsDemo";
 import CircularColorsDemo from "@/components/CircularColorsDemo";
 
+export const dynamicParams = false;
+
 export async function generateStaticParams() {
   const blogPosts = await getBlogPostList();
   return blogPosts.map((p) => ({ postSlug: p.slug }));
