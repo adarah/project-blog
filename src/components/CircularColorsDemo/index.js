@@ -1,2 +1,2 @@
-export * from './CircularColorsDemo';
-export { default } from './CircularColorsDemo';
+export * from "./LazyCircularColorsDemo";
+export { default } from "./LazyCircularColorsDemo";

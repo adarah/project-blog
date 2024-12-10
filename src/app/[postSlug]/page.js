@@ -4,6 +4,7 @@ import { MDXRemote } from "next-mdx-remote/rsc";
 import styles from "./postSlug.module.css";
 import CodeSnippet from "@/components/CodeSnippet";
 import DivisionGroupsDemo from "@/components/DivisionGroupsDemo";
+import CircularColorsDemo from "@/components/CircularColorsDemo";
 
 export async function generateStaticParams() {
   const blogPosts = await getBlogPostList();
@@ -41,6 +42,7 @@ async function BlogPost({ params }) {
           components={{
             pre: CodeSnippet,
             DivisionGroupsDemo,
+            CircularColorsDemo,
           }}
         />
       </div>
